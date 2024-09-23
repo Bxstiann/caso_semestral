@@ -1,13 +1,52 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title class="ion-text-center">
+      <b>registrAPP</b>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-justify-content-center ion-align-items-center" fullscreen color="light">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 50vh;">
+      <ion-col size="12" size-md="6">
+        <form (ngSubmit)="onSubmit()">
+
+          <ion-item color="">
+            <ion-label position="floating" color="secondary">
+              Nombre de usuario
+            </ion-label>
+            <ion-input type="text" [(ngModel)]="user" name="user" required>
+            </ion-input>
+            <ion-icon slot="end" name="person-circle-outline" color="secondary" style="height: 50px;" style="padding: 10px;"></ion-icon>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating" color="secondary">
+              Contraseña
+            </ion-label>
+            <ion-input type="password" [(ngModel)]="pswd" name="pswd" required>
+              <ion-input-password-toggle slot="end" color="secondary">
+              </ion-input-password-toggle>
+            </ion-input>
+          </ion-item>
+
+          <ion-button expand="block" type="submit" color="success">
+            Iniciar sesión
+          </ion-button>
+
+        </form>
+
+        <ion-button id="present-alert" expand="block" fill="clear" shape="round" style="color: #3dc2ff;">
+          ¿Olvidaste tu contraseña?
+        </ion-button>
+        <ion-alert
+          trigger="present-alert"
+          header="Introduzca su nombre de usuario"
+          [buttons]="alertButtons"
+          [inputs]="alertInputs"
+        ></ion-alert>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
