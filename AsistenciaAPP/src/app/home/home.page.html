@@ -1,8 +1,20 @@
 <ion-header>
   <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-button style="visibility: hidden;">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     <ion-title class="ion-text-center">
       <b>HOME</b>
     </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/login">
+        <ion-icon slot="icon-only" name="log-out" color="warning"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -45,27 +57,3 @@
   </ion-card>
 </ion-content>
 
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-buttons slot="secondary" style="justify-content: center; width: 100%;">
-      <ion-button routerLink="/mis_asignaturas">
-        <ion-icon slot="icon-only" name="book"></ion-icon>
-      </ion-button>
-      <ion-button routerLink="/asistencias">
-        <ion-icon slot="icon-only" name="calendar"></ion-icon>
-      </ion-button>
-      <ion-button routerLink="/cambiar_contrasena">
-        <ion-icon slot="icon-only" name="key"></ion-icon>
-      </ion-button>
-      <ion-button [disabled]="true">
-        <ion-icon slot="icon-only" name="camera"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="primary">
-      <ion-button routerLink="/login">
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>
