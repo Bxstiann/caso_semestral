@@ -17,7 +17,40 @@ export class LoginPage {
       }
     }
   }];
-
+  async restablecerContrasena() {
+    const alert = await this.alertController.create({
+      header: 'Restablecer Contraseña',
+      inputs: [
+        {
+          name: 'user',
+          type: 'text',
+          placeholder: 'Nombre de usuario'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelado');
+          }
+        },
+        {
+          text: 'Restablecer',
+          handler: (data) => {
+            if (data.user) {
+              this.enviarMensaje(data.user);
+            } else {
+              console.log('No se ingresó nombre de usuario');
+            }
+          }
+        }
+      ]
+    });
+  
+    await alert.present();
+  }
+  
   public alertInputs = [
     {
       name: "nombreUsuario",
