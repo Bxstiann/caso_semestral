@@ -48,7 +48,6 @@ export class LoginPage {
           }
         }]
       });
-
       await alert.present();
     } else {
       const alert = await this.alertController.create({

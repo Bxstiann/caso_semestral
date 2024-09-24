@@ -25,8 +25,8 @@ export class MisAsignaturasPage implements OnInit {
       nombre: "Etica para el trabajo",
       seccion: "002D",
     },
-    { codigo: "ASY4131",
-      nombre: "Arquitectura",
+    { codigo: "PGY4121",
+      nombre: "Programacion movil",
       seccion: "001D",
     },
 
