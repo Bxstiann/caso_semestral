@@ -15,6 +15,18 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'asistencias',
+    loadChildren: () => import('./asistencias/asistencias.module').then( m => m.AsistenciasPageModule)
+  },
+  {
+    path: 'cambiarcontrasena',
+    loadChildren: () => import('./cambiarcontrasena/cambiarcontrasena.module').then( m => m.CambiarcontrasenaPageModule)
+  },
+  {
+    path: 'camara',
+    loadChildren: () => import('./camara/camara.module').then( m => m.CamaraPageModule)
+  },
 ];
 
 @NgModule({
