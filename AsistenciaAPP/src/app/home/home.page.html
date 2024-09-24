@@ -1,39 +1,66 @@
 <ion-header>
   <ion-toolbar color="success">
     <ion-title class="ion-text-center">
-      <b></b>
+      <b>HOME</b>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-card button="True" href="mis_asignaturas">
+      <ion-card-header>
+        <ion-card-title>Mis asignaturas</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Vea su lista de asignaturas.
+      </ion-card-content>
+    </ion-card>
 
+    <ion-card button="True" href="asistencias">
+      <ion-card-header>
+        <ion-card-title>Mis asistencias</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+          Vea sus asistencias de cada asignatura y su respectiva fecha aca.
+      </ion-card-content>
+    </ion-card>
 
-
-
+    <ion-card button="True" href="registrar_asistencias">
+    <ion-card-header>
+      <ion-card-title>Registrar asistencia</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Registre sus asistencias aca.
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card button="True" href="cambiar_contrasena">
+    <ion-card-header>
+      <ion-card-title>Cambiar clave</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Desea cambiar su contraseña?, por aca...
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 
 <ion-footer>
-<ion-toolbar>
-  <ion-buttons slot="secondary">
-    <ion-button>
-      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
-    </ion-button>
-    <ion-button>
-      <ion-icon slot="icon-only" name="search"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-  <ion-buttons slot="primary">
-    <ion-button>
-      <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-  <ion-title></ion-title>
-</ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="secondary" style="justify-content: center; width: 100%;">
+      <ion-button href="mis_asignaturas">
+        <ion-icon slot="icon-only" name="book"></ion-icon>
+      </ion-button>
+      <ion-button href="asistencias">
+        <ion-icon slot="icon-only" name="calendar"></ion-icon>
+      </ion-button>
+      <ion-button href="cambiar_contrasena">
+        <ion-icon slot="icon-only" name="key"></ion-icon>
+      </ion-button>
+      <ion-button [disabled]="true">
+        <ion-icon slot="icon-only" name="camera"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-footer>
