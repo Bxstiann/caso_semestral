@@ -18,18 +18,22 @@ export class CambiarcontrasenaPage implements OnInit {
   
   async onSubmit() {
     if (this.claveActual !== this.claveTemporal){
-      this.mostrarMensaje("La clave actual es incorrecta");
+      this.mostrarMensaje("La contraseña actual es incorrecta");
       return;
     }
   
     if (this.nuevaClave !== this.confirmarClave){
-      this.mostrarMensaje("Escriba la misma clave en confirmación");
+      this.mostrarMensaje("Las contraseñas no coinciden");
       return;
     }
   
     this.claveTemporal = this.nuevaClave;
+
+    this.claveActual = '';
+    this.nuevaClave = '';
+    this.confirmarClave = '';
   
-    this.mostrarMensaje("Clave cambiada correctamente")
+    this.mostrarMensaje("Clave cambiada correctamente");
   }
   
   async mostrarMensaje(mensaje: string) {
@@ -40,8 +44,6 @@ export class CambiarcontrasenaPage implements OnInit {
   
     await alert.present();
   }
-  
-  ngOnInit() {
-  }
-  
-  }
+
+  ngOnInit() {}
+}
