@@ -12,6 +12,27 @@
       <ion-title size="large">mis_asignaturas</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  
+  <div class="ion-text-center">
+
+    <h1>Asignaturas</h1>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-label>Codigo</ion-label>
+        <ion-label>Sección</ion-label>
+      </ion-item>
+      <ion-item *ngFor="let asignatura of asignaturas">
+        <ion-label>{{asignatura.nombre }}</ion-label> 
+        <ion-label>{{asignatura.codigo | uppercase }}</ion-label>
+        <ion-label>{{asignatura.seccion | uppercase }}</ion-label> 
+      </ion-item>
+    </ion-list>
+
+  </div>
+
 </ion-content>
 
 
