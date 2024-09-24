@@ -27,6 +27,16 @@ const routes: Routes = [
     path: 'camara',
     loadChildren: () => import('./camara/camara.module').then( m => m.CamaraPageModule)
   },
+  {
+    path: 'mis_asignaturas',
+    loadChildren: () => import('./mis-asignaturas/mis-asignaturas.module').then( m => m.MisAsignaturasPageModule)
+  },
+  {
+    path: 'registrar_asistencias',
+    loadChildren: () => import('./registrar-asistencias/registrar-asistencias.module').then( m => m.RegistrarAsistenciasPageModule)
+  },
+
+
 ];
 
 @NgModule({
