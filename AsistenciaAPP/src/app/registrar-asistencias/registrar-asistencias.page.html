@@ -12,6 +12,12 @@
       <ion-title size="large">registrar_asistencias</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card>
+    <!-- Hacer que la imagen ocupe el 100% del ancho -->
+    <img src="/assets/imagenes/qr.png" alt="CodigoQr" style="width: 100%;">
+  </ion-card>
+
 </ion-content>
 
 <ion-footer>
@@ -26,8 +32,8 @@
       <ion-button routerLink="/cambiar_contrasena">
         <ion-icon slot="icon-only" name="key"></ion-icon>
       </ion-button>
-      <ion-button [disabled]="true">
-        <ion-icon slot="icon-only" name="camera"></ion-icon>
+      <ion-button routerLink="/registrar_asistencias">
+        <ion-icon slot="icon-only" name="qr-code"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="primary">
