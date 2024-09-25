@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { GlobalUsers } from '../usuarios'; // Importar el array global
 
 @Component({
   selector: 'app-login',
@@ -9,69 +10,19 @@ import { Router } from '@angular/router';
 })
 export class LoginPage {
 
-  public alertButtons = [{
-    text: 'Restablecer contraseña',
-    handler: (data: any) => {
-      if (data && data.user) {
-        this.enviarMensaje(data.user);
-      }
-    }
-  }];
-  async restablecerContrasena() {
-    const alert = await this.alertController.create({
-      header: 'Restablecer Contraseña',
-      inputs: [
-        {
-          name: 'user',
-          type: 'text',
-          placeholder: 'Nombre de usuario'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancelado');
-          }
-        },
-        {
-          text: 'Restablecer',
-          handler: (data) => {
-            if (data.user) {
-              this.enviarMensaje(data.user);
-            } else {
-              console.log('No se ingresó nombre de usuario');
-            }
-          }
-        }
-      ]
-    });
-  
-    await alert.present();
-  }
-  
-  public alertInputs = [
-    {
-      name: "nombreUsuario",
-      type: "text",
-      placeholder: 'Nombre de usuario',
-    }
-  ];
-
   user: string = "";
   pswd: string = "";
-
-  usuarioTest: string = "Usuario1";
-  claveTest: string = "MiClav3";
 
   constructor(
     private alertController: AlertController, 
     private router: Router
   ) { }
 
+  // Lógica de inicio de sesión
   async onSubmit() {
-    if (this.user === this.usuarioTest && this.pswd === this.claveTest) {
+    const usuarioEncontrado = GlobalUsers.usuarios.find(u => u.username === this.user && u.password === this.pswd);
+
+    if (usuarioEncontrado) {
       const alert = await this.alertController.create({
         header: 'Inicio de Sesión Exitoso',
         buttons: [{
@@ -93,6 +44,43 @@ export class LoginPage {
     }
   }
 
+  // Función de restablecer contraseña
+  async restablecerContrasena() {
+    const alert = await this.alertController.create({
+      header: 'Restablecer Contraseña',
+      inputs: [
+        {
+          name: 'user',
+          type: 'text',
+          placeholder: 'Nombre de usuario'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelado');
+          }
+        },
+        {
+          text: 'Restablecer',
+          handler: (data) => {
+            const usuarioEncontrado = GlobalUsers.usuarios.find(u => u.username === data.user);
+
+            if (usuarioEncontrado) {
+              this.enviarMensaje(data.user);
+            } else {
+              this.mostrarMensaje("Usuario no encontrado");
+            }
+          }
+        }
+      ]
+    });
+  
+    await alert.present();
+  }
+
   async enviarMensaje(user: string) {
     const mensaje = `Se ha enviado un mail al correo asociado al usuario: ${user}`;
     await this.mostrarMensaje(mensaje);
@@ -100,7 +88,7 @@ export class LoginPage {
 
   async mostrarMensaje(mensaje: string) {
     const alert = await this.alertController.create({
-      header: "Mail enviado",
+      header: "Notificación",
       message: mensaje,
       buttons: ["Ok"]
     });
